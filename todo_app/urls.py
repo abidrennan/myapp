@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
-from .views import SkillList, SkillDetail, SkillCreate, SkillUpdate, SkillDelete, SkillLogin
+from .views import SkillList, SkillDetail, SkillCreate, SkillUpdate, SkillDelete, SkillLogin, SkillSignUp
 from django.contrib.auth.views import LogoutView
+
 urlpatterns = [
     path('', views.index, name = 'index'),
     path('skills/', SkillList.as_view(), name='skill-list'),
@@ -11,4 +12,5 @@ urlpatterns = [
     path('skill-delete/<int:pk>/', SkillDelete.as_view(), name='skill-delete'),
     path('login/', SkillLogin.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('signup/', SkillSignUp.as_view(), name='signup'),
 ]

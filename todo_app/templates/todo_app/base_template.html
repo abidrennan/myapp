@@ -34,6 +34,9 @@
                 <a class="nav-link" href="{% url 'skill-create' %}">Add Task</a>
               </li>
             </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-1 justify-content-center" type="search" placeholder="Search" aria-label="Search">
+              </form>
           </div>
           <ul class="nav justify-content-end gap-3">   
             {% if request.user.is_authenticated %}

@@ -1,6 +1,10 @@
 {% extends 'todo_app/base_template.html' %}
 
 {% block content %}
+<form method="GET">
+    <input type='text' name='search-area' value="{{search_input}}">
+    <input type="submit" value='Search'>
+</form>
 
 <h1>My to do list</h1>
 
