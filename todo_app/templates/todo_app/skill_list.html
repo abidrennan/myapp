@@ -1,0 +1,23 @@
+{% extends 'todo_app/base_template.html' %}
+
+{% block content %}
+
+<h1>My to do list</h1>
+
+<table>
+    <tr>
+        <th>Item</th>
+    </tr>
+    {% for skill in object_list %}
+    <tr>
+        <td>{{skill.title}}</td>
+        <td><a href="{% url 'skill' skill.id %}">View</a></td>
+        <td><a href="{% url 'skill-update' skill.id %}">Edit</a></td>
+        <td><a href="{% url 'skill-delete' skill.id %}">Delete</a></td>
+    </tr>
+    {% empty %}
+        <h3>No items in list</h3>
+    {% endfor %}
+</table>
+
+{% endblock %}
