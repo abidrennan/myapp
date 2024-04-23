@@ -1,17 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {max-width: 550px;
+        margin: auto;
+        margin-top: 30px;
+        background-color: #fff;
+        -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        box-shadow: 2px 2px 13px -4px rgma(0, 0, 0, 0.21);
+        background-size: 1252px 686px;
+        background-image: url('/static/images/help.webp');
+    }
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        color: #000000;
+        padding: 5px;
+        border-radius: 5px 5px 0px 0px;
+        background: #E6E6FA;
+    }
+    .button {
+        border: 1px solid #757575;
+        background-color: #fff;
+        color: #000000;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .container{
+        background-color: #fff;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+    <div class="header-bar">
+        <h1>Sign Up</h1>
+    </div>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <label>{{form.username.label}}</label>
+            {{form.username}}
+            <label>{{form.password1.label}}</label>
+            {{form.password1}}
+            <label>{{form.password2.label}}</label>
+            {{form.password2}}
 
-
-{% block content %}
-<h1>Sign Up</h1>
-
-<form method="POST">
-    {% csrf_token %}
-    <label>{{form.username.label}}</label>
-    {{form.username}}
-    <label>{{form.password1.label}}</label>
-    {{form.password1}}
-    <label>{{form.password2.label}}</label>
-    {{form.password2}}
-    <input type="submit" value="Sign Up">
-</form>
-<p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
-{% endblock %}
+            <input class="button" type="submit" value="Sign Up">
+        </form>
+        <br>
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+</body>
+</html>

@@ -7,12 +7,11 @@
     <br>
     <br>    
     <h1>{{request.user}}'s Skill List</h1>
-
-        <p class="text-start text-dark fs-6 fw-light">You have {{count}} skill{{count|pluralize:"s"}} to work on</p>
-        <form method="GET">
-            <input class="form-control me-1 border-dark" type='text' name='search-area' placeholder="Search" value="{{search_input}}" >
-        </form>
-        <br>
+    <br>
+    <form method="GET">
+        <input class="border border-dark-subtle col-sm-5 " type='text' name='search-area' placeholder="Search" value="{{search_input}}" style="border-radius: 6px;">
+    </form>
+    <br>
     <div class="skill-items-wrapper">
         {% for skill in object_list %}
         <div class="skill-wrapper">

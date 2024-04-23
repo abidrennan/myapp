@@ -11,6 +11,6 @@ urlpatterns = [
     path('skill-update/<int:pk>/', SkillUpdate.as_view(), name='skill-update'),
     path('skill-delete/<int:pk>/', SkillDelete.as_view(), name='skill-delete'),
     path('login/', SkillLogin.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('logout/', LogoutView.as_view(next_page='index'), name='logout'),
     path('signup/', SkillSignUp.as_view(), name='signup'),
 ]

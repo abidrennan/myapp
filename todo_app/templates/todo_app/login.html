@@ -4,17 +4,20 @@
 <style>
 body {max-width: 550px;
     margin: auto;
+    margin-top: 30px;
     background-color: #fff;
     -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
     box-shadow: 2px 2px 13px -4px rgma(0, 0, 0, 0.21);
+    background-size: 1252px 686px;
+    background-image: url('/static/images/help.webp');
 }
 .header-bar {
     display: flex;
     justify-content: space-between;
     color: #000000;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px 5px 0px 0px;
-    background: #48D1CC;
+    background: #E6E6FA;
 }
 .button {
     border: 1px solid #757575;
@@ -26,17 +29,27 @@ body {max-width: 550px;
     cursor: pointer;
     text-decoration: none;
 }
+
+.container{
+    background-color: #fff;
+    padding: 10px;
+}
 </style>
 </head>
 <body>
+
     <div class="header-bar">
 <h1>Login</h1>
     </div>
+    <div class="container">
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input class="button" type="submit" value="Login">
 </form>
+<br>
 <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+
+</div>
 </body>
 </html>

@@ -2,9 +2,9 @@
 
 {% block content %}
 <a href ="{% url 'skill-list' %}">Cancel</a>
-
 <form method="post">
     {% csrf_token %}
+    <br>
     <p>Are you sure you want to delete "{{skill}}"?</p>
     <input class="button" type="submit" value="Delete">  
 </form>
