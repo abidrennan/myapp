@@ -66,7 +66,7 @@ class SkillLogin(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('skill-list')
+        return reverse_lazy('index')
     
 class SkillSignUp(FormView):
     template_name = 'todo_app/signup.html'
@@ -82,5 +82,5 @@ class SkillSignUp(FormView):
     
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('skill-list')
+            return redirect('index')
         return super(SkillSignUp, self).get(*args, **kwargs)

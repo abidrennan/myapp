@@ -1,27 +1,41 @@
+
 {% extends 'todo_app/base_template.html' %}
-
 {% block content %}
-<form method="GET">
-    <input type='text' name='search-area' value="{{search_input}}">
-    <input type="submit" value='Search'>
-</form>
+{% load static %}
 
-<h1>My to do list</h1>
+    <a href ="{% url 'index' %}">Home</a>
+    <br>
+    <br>    
+    <h1>{{request.user}}'s Skill List</h1>
 
-<table>
-    <tr>
-        <th>Item</th>
-    </tr>
-    {% for skill in object_list %}
-    <tr>
-        <td>{{skill.title}}</td>
-        <td><a href="{% url 'skill' skill.id %}">View</a></td>
-        <td><a href="{% url 'skill-update' skill.id %}">Edit</a></td>
-        <td><a href="{% url 'skill-delete' skill.id %}">Delete</a></td>
-    </tr>
-    {% empty %}
-        <h3>No items in list</h3>
-    {% endfor %}
-</table>
-
-{% endblock %}
+        <p class="text-start text-dark fs-6 fw-light">You have {{count}} skill{{count|pluralize:"s"}} to work on</p>
+        <form method="GET">
+            <input class="form-control me-1 border-dark" type='text' name='search-area' placeholder="Search" value="{{search_input}}" >
+        </form>
+        <br>
+    <div class="skill-items-wrapper">
+        {% for skill in object_list %}
+        <div class="skill-wrapper">
+            {% if skill.complete %}
+            <div class ="skill-title">
+                <div class="skill-complete-icon"></div>
+                <i><s><a href="{% url 'skill-update' skill.id %}">{{skill}}</a></s></i>
+            </div>
+    
+            {% else %}
+            <div class ="skill-title">
+                  <div class="skill-incomplete-icon"></div>
+                  <a href="{% url 'skill-update' skill.id %}">{{skill}}</a>
+            </div>
+           {% endif %}
+           <a class="view-link" href="{% url 'skill' skill.id %}">&#128065  View</a>
+           <a class="edit-link" href="{% url 'skill-update' skill.id %}">&#9998  Edit</a>
+           <a class="delete-link" href="{% url 'skill-delete' skill.id %}">&#215  Delete</a>
+        </div> 
+    
+        {% empty %}
+    
+        {% endfor %}
+    </div>
+    <br>
+{% endblock content %}

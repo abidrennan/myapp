@@ -1,14 +1,17 @@
-
+{% extends 'todo_app/base_template.html' %}
 
 {% block content %}
 
-<a href ="{% url 'skill-list' %}">Back</a>
+<a href ="{% url 'index' %}">Home</a>
+<br>
+<br>
     <h3>Skill Form</h3>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
-</form>
+        <input class="logout-button" type="submit" value="Submit">
+    </form>
+<br>
 
 
 {% endblock %}

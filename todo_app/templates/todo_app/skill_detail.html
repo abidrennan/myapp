@@ -1,4 +1,11 @@
+{% extends 'todo_app/base_template.html' %}
 
+{% block content %}
+{% load static %}
 <a href ="{% url 'skill-list' %}">Back</a>
+<br>
+<br>
 <h1>Skill: {{skill}}</h1>
+<br>
+{% endblock %}
 
