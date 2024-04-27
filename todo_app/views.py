@@ -12,8 +12,8 @@ from django.contrib.auth import login
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'todo_app/index.html')
+def home(request):
+    return render(request, 'todo_app/home.html')
 
 class SkillList(LoginRequiredMixin, ListView):
     model = Skill
@@ -66,13 +66,13 @@ class SkillLogin(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('index')
+        return reverse_lazy('home')
     
 class SkillSignUp(FormView):
     template_name = 'todo_app/signup.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('skill-list')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         user = form.save()
@@ -82,5 +82,5 @@ class SkillSignUp(FormView):
     
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('index')
+            return redirect('home')
         return super(SkillSignUp, self).get(*args, **kwargs)

@@ -13,7 +13,7 @@
     body {
         background-size: 1252px 686px;
         font-family: 'Nunito', monospace;
-        background-image: url('/static/images/help.webp');
+        background-image: url('/static/images/bg.webp');
     }
     .delete-link {
         text-decoration: none;
@@ -125,7 +125,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" href="{% url 'index' %}">Home</a>
+                <a class="nav-link text-dark" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark" href="{% url 'skill-list' %}">My List</a>
@@ -142,9 +142,9 @@
                 <a style="color: black">&#9734{{request.user}}&#9734</a>
                 <input class="button" type="submit" value="Logout">
             </form>
-        {% else %}
-            <a class="login-button" href="{% url 'login' %}">Login</a>
-            <a class="signup-button" href="{% url 'signup' %}">Signup</a>
+            {% else %}
+                <a class="login-button" href="{% url 'login' %}">Login</a>
+                <a class="signup-button" href="{% url 'signup' %}">Signup</a>
             {% endif %}    
           </ul>
         </div>
